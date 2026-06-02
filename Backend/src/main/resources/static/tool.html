@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocGenius - Tool</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.1/fabric.min.js"></script>
+</head>
+<body class="tool-page-body">
+    <div class="cube-container">
+        <div class="cube">
+            <div class="cube-face front">PDF</div>
+            <div class="cube-face back">DOC</div>
+            <div class="cube-face right">AI</div>
+            <div class="cube-face left">GENIUS</div>
+            <div class="cube-face top">DOCS</div>
+            <div class="cube-face bottom">PDF</div>
+        </div>
+        <div class="small-cube c1">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="small-cube c2">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="small-cube c3">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="nav-container" style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;">
+            <div style="display: flex; align-items: center;">
+                <a href="index.html" class="logo" style="text-decoration: none;">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="tool.html?type=merge">MERGE PDF</a></li>
+                    <li><a href="tool.html?type=split">SPLIT PDF</a></li>
+                    <li><a href="tool.html?type=compress">COMPRESS PDF</a></li>
+                    <li class="dropdown">
+                        <a href="#">CONVERT PDF <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tool.html?type=word-to-pdf"><i class="fas fa-file-word"></i> Word to PDF</a></li>
+                            <li><a href="tool.html?type=jpg-to-pdf"><i class="fas fa-file-image"></i> JPG to PDF</a></li>
+                            <li><a href="tool.html?type=excel-to-pdf"><i class="fas fa-file-excel"></i> Excel to PDF</a></li>
+                            <li><a href="tool.html?type=html-to-pdf"><i class="fas fa-code"></i> HTML to PDF</a></li>
+                            <li><a href="tool.html?type=pdf-to-word"><i class="fas fa-file-word"></i> PDF to Word</a></li>
+                            <li><a href="tool.html?type=pdf-to-ppt"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a></li>
+                            <li><a href="tool.html?type=pdf-to-excel"><i class="fas fa-file-excel"></i> PDF to Excel</a></li>
+                            <li><a href="tool.html?type=pdf-to-jpg"><i class="fas fa-file-image"></i> PDF to JPG</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">ALL PDF TOOLS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tool.html?type=merge"><i class="fas fa-object-group"></i> Merge PDF</a></li>
+                            <li><a href="tool.html?type=split"><i class="fas fa-scissors"></i> Split PDF</a></li>
+                            <li><a href="tool.html?type=compress"><i class="fas fa-compress-alt"></i> Compress PDF</a></li>
+                            <li><a href="tool.html?type=edit"><i class="fas fa-edit"></i> Edit PDF</a></li>
+                            <li><a href="tool.html?type=summarize"><i class="fas fa-robot"></i> Summarize PDF</a></li>
+                            <li><a href="tool.html?type=translate"><i class="fas fa-language"></i> Translate PDF</a></li>
+                            <li><a href="tool.html?type=compress-image"><i class="fas fa-file-image"></i> Compress Image</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth">
+                <a href="#" class="btn-login">Login</a>
+                <a href="#" class="btn-signup">Sign up</a>
+            </div>
+
+            <!-- User Profile (Hidden by default) -->
+            <div class="user-profile-container" id="userProfileContainer" style="display: none;">
+                <div class="user-icon-btn" id="userIconBtn">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-info-header">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="user-details">
+                            <span class="user-name">Vibhu Agarwal</span>
+                            <span class="user-email">agarwalvibhu822@gmail.com</span>
+                        </div>
+                    </div>
+                    <ul class="user-dropdown-menu">
+                        <li><a href="#"><i class="fas fa-cog"></i> Account settings</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Team</a></li>
+                        <li><a href="#"><i class="fas fa-signature"></i> Signatures</a></li>
+                        <li><a href="#"><i class="fas fa-project-diagram"></i> Workflows</a></li>
+                        <li><a href="#" class="premium-link"><i class="fas fa-star"></i> Upgrade to Premium</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" id="btnLogout"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tool-container">
+        <!-- Initial Upload Section (Image 2) -->
+        <section id="uploadSection" class="tool-section active">
+            <div class="tool-header">
+                <h1 id="toolTitle">Tool Title</h1>
+                <p id="toolDescription">Tool description goes here.</p>
+            </div>
+
+            <div class="upload-area">
+                <div class="upload-wrapper" style="flex-direction: column; gap: 20px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <input type="file" id="toolFileInput" hidden multiple>
+                        <button class="btn-primary-large" id="mainUploadBtn" onclick="document.getElementById('toolFileInput').click()">
+                            <span id="buttonText">Select PDF files</span>
+                        </button>
+                        <div class="cloud-options">
+                            <button class="cloud-btn"><i class="fab fa-google-drive"></i></button>
+                            <button class="cloud-btn"><i class="fab fa-dropbox"></i></button>
+                        </div>
+                    </div>
+                    
+                    <div id="urlInputContainer" style="display: none; width: 100%; max-width: 600px;">
+                        <p style="margin-bottom: 10px; color: #666; font-weight: 500;">OR enter website URL:</p>
+                        <div style="display: flex; gap: 10px;">
+                            <input type="text" id="websiteUrlInput" placeholder="https://google.com" style="flex: 1; padding: 15px; border: 2px solid #ddd; border-radius: 12px; font-size: 16px;">
+                            <button class="btn-primary-large" style="padding: 15px 30px; font-size: 18px;" onclick="previewWebsiteUrl()">Preview</button>
+                        </div>
+                    </div>
+                </div>
+                <p class="drop-text">or drop files here</p>
+            </div>
+        </section>
+
+        <!-- Edit PDF Workspace Section (New) -->
+        <section id="editWorkspaceSection" class="tool-section">
+            <div class="edit-toolbar">
+                <div class="toolbar-group">
+                    <button class="tool-btn active" id="toolSelect" title="Select"><i class="fas fa-mouse-pointer"></i></button>
+                    <button class="tool-btn" id="toolText" title="Add Text"><i class="fas fa-font"></i></button>
+                    <button class="tool-btn" id="toolImage" title="Add Image"><i class="fas fa-image"></i></button>
+                    <button class="tool-btn" id="toolDraw" title="Freehand"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="tool-btn" id="toolShape" title="Add Shape"><i class="fas fa-shapes"></i></button>
+                </div>
+                <div class="toolbar-group style-controls" id="styleControls" style="display: none;">
+                    <select id="fontFamily" class="toolbar-select">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Inter">Inter</option>
+                    </select>
+                    <select id="fontSize" class="toolbar-select">
+                        <option value="12">12</option>
+                        <option value="14">14</option>
+                        <option value="16">16</option>
+                        <option value="20">20</option>
+                        <option value="24">24</option>
+                        <option value="32">32</option>
+                    </select>
+                    <input type="color" id="textColor" value="#000000" class="toolbar-color">
+                    <button class="tool-btn" id="btnBold" title="Bold"><i class="fas fa-bold"></i></button>
+                    <button class="tool-btn" id="btnItalic" title="Italic"><i class="fas fa-italic"></i></button>
+                </div>
+                <div class="toolbar-group">
+                    <button class="tool-btn" id="toolDelete" title="Delete Selected"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+
+            <div class="edit-layout">
+                <div class="edit-pages-sidebar" id="editPagesSidebar">
+                    <!-- Page thumbnails will be here -->
+                </div>
+                <div class="edit-canvas-area" id="editCanvasArea">
+                    <div class="canvas-wrapper">
+                        <canvas id="pdfCanvas"></canvas>
+                    </div>
+                </div>
+                <div class="edit-layers-sidebar">
+                    <h2 style="color: #fff; font-size: 18px; margin-bottom: 20px;">Edit PDF</h2>
+                    <div class="info-alert">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Reorder items to move them to the back or front.</span>
+                    </div>
+                    <div id="layersList" class="layers-list">
+                        <!-- Object layers will be here -->
+                    </div>
+                    <button id="saveEditBtn" class="btn-process" style="margin-top: auto; width: 100%;">
+                        <span>Save changes</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+            <input type="file" id="imageUploadInput" style="display: none;" accept="image/*">
+        </section>
+
+        <!-- Summary Workspace Section (New) -->
+        <section id="summaryWorkspaceSection" class="tool-section" style="width: 100vw; height: calc(100vh - 70px); margin: 0; padding: 0; overflow: hidden;">
+            <div class="summary-layout">
+                <!-- Left: PDF Viewer -->
+                <div class="summary-pdf-view">
+                    <div class="viewer-controls">
+                        <button id="prevPage" class="btn-icon"><i class="fas fa-chevron-left"></i></button>
+                        <span>Page <span id="pageNum">1</span> / <span id="pageCount">-</span></span>
+                        <button id="nextPage" class="btn-icon"><i class="fas fa-chevron-right"></i></button>
+                        <div class="zoom-controls">
+                            <button id="zoomOut" class="btn-icon"><i class="fas fa-search-minus"></i></button>
+                            <span id="zoomLevel">100%</span>
+                            <button id="zoomIn" class="btn-icon"><i class="fas fa-search-plus"></i></button>
+                        </div>
+                    </div>
+                    <div id="summaryPdfContainer" class="pdf-container">
+                        <!-- PDF pages will be rendered here -->
+                        <canvas id="summaryCanvas"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Right: AI Summary & Chat -->
+                <div class="summary-ai-pane">
+                    <div class="summary-tabs">
+                        <button class="tab-btn active" data-tab="summary-tab">Summary</button>
+                        <button class="tab-btn" data-tab="chat-tab">Ask AI</button>
+                    </div>
+
+                    <div id="summary-tab" class="tab-content active">
+                        <div class="summary-header">
+                            <div class="ai-badge"><i class="fas fa-magic"></i> AI POWERED</div>
+                            <h2 id="summaryTitleText">Document Summary</h2>
+                        </div>
+                        
+                        <div class="summary-content-scroll">
+                            <div class="summary-card">
+                                <div id="summaryPoints" class="summary-points">
+                                    <!-- Summary points will be here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="summary-actions">
+                            <button id="downloadSummaryBtn" class="btn-primary-large" style="width: 100%;">
+                                <i class="fas fa-download"></i> Download Summary as PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="chat-tab" class="tab-content">
+                        <div class="chat-header">
+                            <div class="ai-badge"><i class="fas fa-robot"></i> AI ASSISTANT</div>
+                            <h3>Ask anything about this PDF</h3>
+                        </div>
+                        
+                        <div id="chatHistory" class="chat-history">
+                            <div class="chat-msg ai">
+                                Hello! I've analyzed your document. Feel free to ask me any questions about its content.
+                            </div>
+                        </div>
+
+                        <div class="chat-input-wrapper">
+                            <div class="chat-input-container">
+                                <input type="text" id="chatInput" placeholder="Type your question here...">
+                                <button id="sendChatBtn" class="btn-send-chat">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML to PDF Workspace Section (New) -->
+        <section id="htmlWorkspaceSection" class="tool-section" style="width: 100vw; height: calc(100vh - 70px); margin: 0; padding: 0; overflow: hidden;">
+            <div class="html-layout">
+                <!-- Left: Website Preview -->
+                <div class="html-preview-view">
+                    <div class="preview-status-bar">
+                        <div class="status-dot"></div>
+                        <span id="previewUrlText">https://example.com</span>
+                    </div>
+                    <div id="htmlPreviewContainer" class="html-preview-container">
+                        <div class="website-mockup">
+                            <div class="mockup-header">
+                                <div class="mockup-dots"><span></span><span></span><span></span></div>
+                                <div class="mockup-address" id="mockupAddress">https://example.com</div>
+                            </div>
+                            <div class="mockup-body">
+                                <img id="htmlPreviewImage" src="" alt="Website Preview" style="width: 100%; height: auto; display: none;">
+                                <div id="previewOverlay" class="preview-overlay">
+                                    <div class="loader-spinner"></div>
+                                    <i class="fas fa-globe"></i>
+                                    <p>Generating Instant Preview...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right: Settings Sidebar -->
+                <div class="html-settings-pane">
+                    <div class="settings-header">
+                        <h2>HTML to PDF</h2>
+                    </div>
+                    
+                    <div class="settings-content">
+                        <div class="setting-group">
+                            <label>Website URL</label>
+                            <div class="url-display-box">
+                                <span id="displayUrl">https://example.com</span>
+                                <button class="btn-edit-url" id="btnEditUrl"><i class="fas fa-sync-alt"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <label>Screen size</label>
+                            <select id="screenSize" class="settings-select">
+                                <option value="1536">Your screen (1536px)</option>
+                                <option value="1920">Desktop (1920px)</option>
+                                <option value="1280">Laptop (1280px)</option>
+                                <option value="768">Tablet (768px)</option>
+                                <option value="375">Mobile (375px)</option>
+                            </select>
+                        </div>
+
+                        <div class="setting-group">
+                            <label>Page size</label>
+                            <select id="pageSize" class="settings-select">
+                                <option value="A4">A4 (297x210 mm)</option>
+                                <option value="Letter">US Letter (215.9x279.4 mm)</option>
+                                <option value="A3">A3 (420x297 mm)</option>
+                            </select>
+                            <div class="checkbox-group" style="margin-top: 10px;">
+                                <input type="checkbox" id="oneLongPage">
+                                <label for="oneLongPage">One long page <i class="fas fa-info-circle" title="Convert the entire webpage into a single PDF page"></i></label>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <label>Orientation</label>
+                            <div class="orientation-toggle">
+                                <div class="orient-option active" data-value="portrait">
+                                    <i class="fas fa-file"></i>
+                                    <span>Portrait</span>
+                                </div>
+                                <div class="orient-option" data-value="landscape">
+                                    <i class="fas fa-file landscape-icon"></i>
+                                    <span>Landscape</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="setting-group">
+                            <label>Page margin</label>
+                            <select id="pageMargin" class="settings-select">
+                                <option value="none">No margin</option>
+                                <option value="small">Small</option>
+                                <option value="big">Big</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="settings-footer">
+                        <button id="convertHtmlBtn" class="btn-process" style="width: 100%;">
+                            <span>Convert to PDF</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview & Sidebar Section (Image 3) -->
+        <section id="previewSection" class="tool-section" style="width: 100vw; margin: 0; padding: 0;">
+            <div class="preview-layout">
+                <div class="preview-main">
+                    <div id="filePreviewList" class="file-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                    <button class="add-more-btn" onclick="document.getElementById('toolFileInput').click()">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+                <div class="preview-sidebar">
+                    <div class="sidebar-content">
+                        <h2 id="sidebarTitle" style="color: #fff; margin-bottom: 30px;">Tool Name</h2>
+                    </div>
+                    <button id="processBtn" class="btn-process">
+                        <span id="processBtnText">Process PDF</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Section (Image 4) -->
+        <section id="loadingSection" class="tool-section">
+            <div class="loading-content">
+                <h1 id="loadingTitle" style="color: #fff; font-size: 32px;">Processing...</h1>
+                <div class="spinner-wrapper">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Section (Image 5) -->
+        <section id="downloadSection" class="tool-section">
+            <div class="download-container">
+                <h1 id="downloadTitle" style="color: #fff; font-size: 42px; margin-bottom: 40px;">File has been processed</h1>
+                
+                <div class="download-main-row">
+                    <button class="btn-download-large" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download PDF
+                    </button>
+                    
+                    <div class="download-options-grid">
+                        <button class="cloud-btn"><i class="fab fa-google-drive"></i></button>
+                        <button class="cloud-btn"><i class="fas fa-link"></i></button>
+                        <button class="cloud-btn"><i class="fab fa-dropbox"></i></button>
+                        <button class="cloud-btn"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                </div>
+
+                <div class="continue-to-section">
+                    <h3>Continue to...</h3>
+                    <div class="continue-grid">
+                        <a href="tool.html?type=compress" class="continue-card">
+                            <i class="fas fa-compress-alt icon-red"></i>
+                            <span>Compress PDF</span>
+                        </a>
+                        <a href="tool.html?type=merge" class="continue-card">
+                            <i class="fas fa-object-group icon-red"></i>
+                            <span>Merge PDF</span>
+                        </a>
+                        <a href="tool.html?type=split" class="continue-card">
+                            <i class="fas fa-scissors icon-red"></i>
+                            <span>Split PDF</span>
+                        </a>
+                        <a href="#" class="continue-card">
+                            <i class="fas fa-shield-alt icon-blue"></i>
+                            <span>Protect PDF</span>
+                        </a>
+                        <a href="#" class="continue-card">
+                            <i class="fas fa-sort-amount-down icon-orange"></i>
+                            <span>Organize PDF</span>
+                        </a>
+                        <a href="tool.html?type=edit" class="continue-card">
+                            <i class="fas fa-edit icon-purple"></i>
+                            <span>Edit PDF</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="tool-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 DocGenius. Made with <i class="fas fa-heart" style="color: #e5322d;"></i> for better documents.</p>
+        </div>
+    </footer>
+
+    <!-- Google Account Chooser Modal -->
+    <div id="googleChooserModal" class="modal">
+        <div class="modal-content google-chooser">
+            <div class="google-header">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                <span>Sign in with Google</span>
+            </div>
+            <div class="chooser-container">
+                <div class="chooser-logo">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </div>
+                <h3>Choose an account</h3>
+                <p>to continue to <b>DocGenius</b></p>
+
+                <div class="account-list">
+                    <div class="account-item" onclick="simulateLogin('Vibhu Agarwal', 'agarwalvibhu822@gmail.com')">
+                        <div class="account-avatar">V</div>
+                        <div class="account-info">
+                            <span class="account-name">Vibhu Agarwal</span>
+                            <span class="account-email">agarwalvibhu822@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="account-item" onclick="simulateLogin('Vibhu Agarwal', 'vibhu10a11056@gmail.com')">
+                        <div class="account-avatar">V</div>
+                        <div class="account-info">
+                            <span class="account-name">Vibhu Agarwal</span>
+                            <span class="account-email">vibhu10a11056@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="account-item" onclick="simulateLogin('Movies', 'cinemaentertainment387@gmail.com')">
+                        <div class="account-avatar">M</div>
+                        <div class="account-info">
+                            <span class="account-name">Movies</span>
+                            <span class="account-email">cinemaentertainment387@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-another">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Use another account</span>
+                </div>
+
+                <div class="chooser-footer">
+                    Before using this app, you can review DocGenius's <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <div class="auth-container">
+                <div class="auth-logo">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </div>
+                <h2>Reset your password</h2>
+                <p class="auth-description">Enter your email and check your inbox for instructions. Please also check your spam folder.</p>
+                
+                <form id="forgotPasswordForm">
+                    <div class="input-group">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="forgotEmail" placeholder="Your email" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-auth-submit">Send</button>
+                </form>
+
+                <p class="auth-footer">
+                    Already member? <a href="#" id="backToLogin">Log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <div class="auth-container">
+                <h2 id="authTitle">Login to your account</h2>
+                
+                <div class="social-auth">
+                    <button class="btn-google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>Google</span>
+                    </button>
+                </div>
+
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+
+                <form id="authForm">
+                    <div class="input-group">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="authEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="authPassword" placeholder="Password" required>
+                    </div>
+                    
+                    <a href="#" class="forgot-link">Forgot your password?</a>
+                    
+                    <button type="submit" id="authSubmitBtn" class="btn-auth-submit">Log in</button>
+                </form>
+
+                <p class="auth-footer">
+                    <span id="authFooterText">Don't have an account?</span> 
+                    <a href="#" id="toggleAuth">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- HTML URL Modal -->
+    <div id="htmlUrlModal" class="modal">
+        <div class="modal-content html-modal">
+            <span class="close-modal">&times;</span>
+            <div class="html-modal-container">
+                <h2>Add HTML to convert from</h2>
+                <div class="html-modal-tabs">
+                    <div class="html-tab active">Url</div>
+                </div>
+                <div class="html-modal-body">
+                    <p>Write the website URL</p>
+                    <div class="url-input-wrapper">
+                        <i class="fas fa-globe"></i>
+                        <input type="url" id="htmlUrlInput" placeholder="Example: https://ilovepdf.com" required>
+                    </div>
+                </div>
+                <div class="html-modal-footer">
+                    <button id="addHtmlUrlBtn" class="btn-auth-submit">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get('type');
+            if (type) {
+                initToolPage(type);
+            }
+        });
+    </script>
+</body>
+</html>

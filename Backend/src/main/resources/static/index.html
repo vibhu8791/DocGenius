@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocGenius - Every tool you need to work with PDFs</title>
+    <link rel="stylesheet" href="style.css?v=1.1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cube-container">
+        <div class="cube">
+            <div class="cube-face front">PDF</div>
+            <div class="cube-face back">DOC</div>
+            <div class="cube-face right">AI</div>
+            <div class="cube-face left">GENIUS</div>
+            <div class="cube-face top">DOCS</div>
+            <div class="cube-face bottom">PDF</div>
+        </div>
+        <div class="small-cube c1">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="small-cube c2">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+        <div class="small-cube c3">
+            <div class="cube-face front"></div>
+            <div class="cube-face back"></div>
+            <div class="cube-face right"></div>
+            <div class="cube-face left"></div>
+            <div class="cube-face top"></div>
+            <div class="cube-face bottom"></div>
+        </div>
+    </div>
+    
+    <nav class="navbar">
+        <div class="nav-container" style="max-width: 1300px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 20px;">
+            <div style="display: flex; align-items: center;">
+                <a href="index.html" class="logo" style="text-decoration: none;">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="tool.html?type=merge">MERGE PDF</a></li>
+                    <li><a href="tool.html?type=split">SPLIT PDF</a></li>
+                    <li><a href="tool.html?type=compress">COMPRESS PDF</a></li>
+                    <li class="dropdown">
+                        <a href="#">CONVERT PDF <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tool.html?type=word-to-pdf"><i class="fas fa-file-word"></i> Word to PDF</a></li>
+                            <li><a href="tool.html?type=jpg-to-pdf"><i class="fas fa-file-image"></i> JPG to PDF</a></li>
+                            <li><a href="tool.html?type=excel-to-pdf"><i class="fas fa-file-excel"></i> Excel to PDF</a></li>
+                            <li><a href="tool.html?type=html-to-pdf"><i class="fas fa-code"></i> HTML to PDF</a></li>
+                            <li><a href="tool.html?type=pdf-to-word"><i class="fas fa-file-word"></i> PDF to Word</a></li>
+                            <li><a href="tool.html?type=pdf-to-ppt"><i class="fas fa-file-powerpoint"></i> PDF to PPT</a></li>
+                            <li><a href="tool.html?type=pdf-to-excel"><i class="fas fa-file-excel"></i> PDF to Excel</a></li>
+                            <li><a href="tool.html?type=pdf-to-jpg"><i class="fas fa-file-image"></i> PDF to JPG</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#">ALL PDF TOOLS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="tool.html?type=merge"><i class="fas fa-object-group"></i> Merge PDF</a></li>
+                            <li><a href="tool.html?type=split"><i class="fas fa-scissors"></i> Split PDF</a></li>
+                            <li><a href="tool.html?type=compress"><i class="fas fa-compress-alt"></i> Compress PDF</a></li>
+                            <li><a href="tool.html?type=edit"><i class="fas fa-edit"></i> Edit PDF</a></li>
+                            <li><a href="tool.html?type=summarize"><i class="fas fa-robot"></i> Summarize PDF</a></li>
+                            <li><a href="tool.html?type=translate"><i class="fas fa-language"></i> Translate PDF</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="nav-auth" id="navAuth">
+                <a href="#" class="btn-login">Login</a>
+                <a href="#" class="btn-signup">Sign up</a>
+            </div>
+
+            <!-- User Profile (Hidden by default) -->
+            <div class="user-profile-container" id="userProfileContainer" style="display: none;">
+                <div class="user-icon-btn" id="userIconBtn">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-info-header">
+                        <i class="fas fa-user-circle"></i>
+                        <div class="user-details">
+                            <span class="user-name">Vibhu Agarwal</span>
+                            <span class="user-email">agarwalvibhu822@gmail.com</span>
+                        </div>
+                    </div>
+                    <ul class="user-dropdown-menu">
+                        <li><a href="#"><i class="fas fa-cog"></i> Account settings</a></li>
+                        <li><a href="#"><i class="fas fa-users"></i> Team</a></li>
+                        <li><a href="#"><i class="fas fa-signature"></i> Signatures</a></li>
+                        <li><a href="#"><i class="fas fa-project-diagram"></i> Workflows</a></li>
+                        <li><a href="#" class="premium-link"><i class="fas fa-star"></i> Upgrade to Premium</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" id="btnLogout"><i class="fas fa-sign-out-alt"></i> Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1 id="heroTitle">Every tool you need to work with PDFs in one place</h1>
+        <p id="heroText">Every tool you need to use PDFs, at your fingertips. All are 100% FREE and easy to use! Merge, split, compress, convert, rotate, unlock and watermark PDFs with just a few clicks.</p>
+    </header>
+
+    <main class="container" style="max-width: 1200px; margin: 40px auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; padding: 0 20px;">
+        <!-- Image Compressor (NEW POSITION - FIRST) -->
+        <a href="tool.html?type=compress-image" class="card" id="imgCompressCard" style="border: 2px solid var(--primary-red); position: relative; overflow: visible;">
+            <div style="position: absolute; top: -10px; right: -10px; background: var(--primary-red); color: white; padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: 800; z-index: 10; box-shadow: 0 4px 10px rgba(229,50,45,0.4);">NEW</div>
+            <div class="card-icon"><i class="fas fa-file-image" style="color: #e5322d;"></i></div>
+            <div class="card-content">
+                <h3>Compress Image</h3>
+                <p>Reduce the size of your images without losing quality.</p>
+            </div>
+        </a>
+
+        <!-- Merge PDF -->
+        <a href="tool.html?type=merge" class="card">
+            <div class="card-icon"><i class="fas fa-object-group" style="color: #60a5fa;"></i></div>
+            <div class="card-content">
+                <h3>Merge PDF</h3>
+                <p>Combine multiple PDF files into one document.</p>
+            </div>
+        </a>
+
+        <!-- Split PDF -->
+        <a href="tool.html?type=split" class="card">
+            <div class="card-icon"><i class="fas fa-scissors" style="color: #93c5fd;"></i></div>
+            <div class="card-content">
+                <h3>Split PDF</h3>
+                <p>Extract specific pages from your PDF file.</p>
+            </div>
+        </a>
+
+        <!-- Compress PDF -->
+        <a href="tool.html?type=compress" class="card">
+            <div class="card-icon"><i class="fas fa-compress-alt" style="color: #3b82f6;"></i></div>
+            <div class="card-content">
+                <h3>Compress PDF</h3>
+                <p>Reduce the size of your PDF without losing quality.</p>
+            </div>
+        </a>
+
+        <!-- PDF to Word -->
+        <a href="tool.html?type=pdf-to-word" class="card">
+            <div class="card-icon"><i class="fas fa-file-word" style="color: #60a5fa;"></i></div>
+            <div class="card-content">
+                <h3>PDF to Word</h3>
+                <p>Convert PDF documents to editable Word files.</p>
+            </div>
+        </a>
+
+        <!-- PDF to PowerPoint -->
+        <a href="tool.html?type=pdf-to-ppt" class="card">
+            <div class="card-icon"><i class="fas fa-file-powerpoint" style="color: #93c5fd;"></i></div>
+            <div class="card-content">
+                <h3>PDF to PowerPoint</h3>
+                <p>Transform PDFs into dynamic PPT presentations.</p>
+            </div>
+        </a>
+
+        <!-- PDF to Excel -->
+        <a href="tool.html?type=pdf-to-excel" class="card">
+            <div class="card-icon"><i class="fas fa-file-excel" style="color: #3b82f6;"></i></div>
+            <div class="card-content">
+                <h3>PDF to Excel</h3>
+                <p>Extract data from PDFs into Excel spreadsheets.</p>
+            </div>
+        </a>
+
+        <!-- Word to PDF -->
+        <a href="tool.html?type=word-to-pdf" class="card">
+            <div class="card-icon"><i class="fas fa-file-word" style="color: #60a5fa;"></i></div>
+            <div class="card-content">
+                <h3>Word to PDF</h3>
+                <p>Convert DOC and DOCX files into PDF format.</p>
+            </div>
+        </a>
+
+        <!-- Excel to PDF -->
+        <a href="tool.html?type=excel-to-pdf" class="card">
+            <div class="card-icon"><i class="fas fa-file-excel" style="color: #93c5fd;"></i></div>
+            <div class="card-content">
+                <h3>Excel to PDF</h3>
+                <p>Turn Excel spreadsheets into readable PDF files.</p>
+            </div>
+        </a>
+
+        <!-- Edit PDF -->
+        <a href="tool.html?type=edit" class="card">
+            <div class="card-icon"><i class="fas fa-edit" style="color: #3b82f6;"></i></div>
+            <div class="card-content">
+                <h3>Edit PDF</h3>
+                <p>Add text, shapes, and annotations to your PDF.</p>
+            </div>
+        </a>
+
+        <!-- PDF to JPG -->
+        <a href="tool.html?type=pdf-to-jpg" class="card">
+            <div class="card-icon"><i class="fas fa-file-image" style="color: #60a5fa;"></i></div>
+            <div class="card-content">
+                <h3>PDF to JPG</h3>
+                <p>Extract images or convert PDF pages to JPG.</p>
+            </div>
+        </a>
+
+        <!-- JPG to PDF -->
+        <a href="tool.html?type=jpg-to-pdf" class="card">
+            <div class="card-icon"><i class="fas fa-file-image" style="color: #93c5fd;"></i></div>
+            <div class="card-content">
+                <h3>JPG to PDF</h3>
+                <p>Convert JPG images into a single PDF document.</p>
+            </div>
+        </a>
+
+        <!-- HTML to PDF -->
+        <a href="tool.html?type=html-to-pdf" class="card">
+            <div class="card-icon"><i class="fas fa-code" style="color: #3b82f6;"></i></div>
+            <div class="card-content">
+                <h3>HTML to PDF</h3>
+                <p>Convert web pages and HTML to high-quality PDF.</p>
+            </div>
+        </a>
+
+        <!-- Summarize PDF -->
+        <a href="tool.html?type=summarize" class="card">
+            <div class="card-icon"><i class="fas fa-robot" style="color: #60a5fa;"></i></div>
+            <div class="card-content">
+                <h3>Summarize PDF</h3>
+                <p>Get AI-powered summaries of your PDF content.</p>
+            </div>
+        </a>
+
+        <!-- Translate PDF -->
+        <a href="tool.html?type=translate" class="card">
+            <div class="card-icon"><i class="fas fa-language" style="color: #93c5fd;"></i></div>
+            <div class="card-content">
+                <h3>Translate PDF</h3>
+                <p>Translate your PDF into 100+ languages instantly.</p>
+            </div>
+        </a>
+
+
+    </main>
+
+    <footer class="tool-footer" style="padding: 40px 0; background: var(--glass); margin-top: 80px; border-top: 1px solid var(--glass-border);">
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center; color: var(--text-muted); font-size: 14px; font-weight: 600;">
+            <p>&copy; 2026 DOCGENIUS. Every tool you need to work with PDFs.</p>
+        </div>
+    </footer>
+
+    <!-- Google Account Chooser Modal -->
+    <div id="googleChooserModal" class="modal">
+        <div class="modal-content google-chooser">
+            <div class="google-header">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                <span>Sign in with Google</span>
+            </div>
+            <div class="chooser-container">
+                <div class="chooser-logo">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </div>
+                <h3>Choose an account</h3>
+                <p>to continue to <b>DocGenius</b></p>
+
+                <div class="account-list">
+                    <div class="account-item" onclick="simulateLogin('Vibhu Agarwal', 'agarwalvibhu822@gmail.com')">
+                        <div class="account-avatar">V</div>
+                        <div class="account-info">
+                            <span class="account-name">Vibhu Agarwal</span>
+                            <span class="account-email">agarwalvibhu822@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="account-item" onclick="simulateLogin('Vibhu Agarwal', 'vibhu10a11056@gmail.com')">
+                        <div class="account-avatar">V</div>
+                        <div class="account-info">
+                            <span class="account-name">Vibhu Agarwal</span>
+                            <span class="account-email">vibhu10a11056@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="account-item" onclick="simulateLogin('Movies', 'cinemaentertainment387@gmail.com')">
+                        <div class="account-avatar">M</div>
+                        <div class="account-info">
+                            <span class="account-name">Movies</span>
+                            <span class="account-email">cinemaentertainment387@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-another">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Use another account</span>
+                </div>
+
+                <div class="chooser-footer">
+                    Before using this app, you can review DocGenius's <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>.
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <div class="auth-container">
+                <div class="auth-logo">
+                    <i class="fas fa-file-pdf"></i> <span>DOC<b>GENIUS</b></span>
+                </div>
+                <h2>Reset your password</h2>
+                <p class="auth-description">Enter your email and check your inbox for instructions. Please also check your spam folder.</p>
+                
+                <form id="forgotPasswordForm">
+                    <div class="input-group">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="forgotEmail" placeholder="Your email" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-auth-submit">Send</button>
+                </form>
+
+                <p class="auth-footer">
+                    Already member? <a href="#" id="backToLogin">Log in</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="loginModal" class="modal">
+        <div class="modal-content auth-modal">
+            <span class="close-modal">&times;</span>
+            <div class="auth-container">
+                <h2 id="authTitle">Login to your account</h2>
+                
+                <div class="social-auth">
+                    <button class="btn-google">
+                        <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                        <span>Google</span>
+                    </button>
+                </div>
+
+                <div class="auth-divider">
+                    <span>or</span>
+                </div>
+
+                <form id="authForm">
+                    <div class="input-group">
+                        <i class="far fa-envelope"></i>
+                        <input type="email" id="authEmail" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="authPassword" placeholder="Password" required>
+                    </div>
+                    
+                    <a href="#" class="forgot-link">Forgot your password?</a>
+                    
+                    <button type="submit" id="authSubmitBtn" class="btn-auth-submit">Log in</button>
+                </form>
+
+                <p class="auth-footer">
+                    <span id="authFooterText">Don't have an account?</span> 
+                    <a href="#" id="toggleAuth">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
