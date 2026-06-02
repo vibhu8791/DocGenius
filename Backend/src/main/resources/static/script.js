@@ -125,6 +125,28 @@ const navAuth = document.getElementById('navAuth');
 const userProfileContainer = document.getElementById('userProfileContainer');
 const userIconBtn = document.getElementById('userIconBtn');
 const userDropdown = document.getElementById('userDropdown');
+const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+
+// Mobile Menu Toggle
+if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu');
+        if (navMenu) {
+            const isVisible = window.getComputedStyle(navMenu).display !== 'none';
+            navMenu.style.display = isVisible ? 'none' : 'flex';
+            navMenu.style.flexDirection = 'column';
+            navMenu.style.position = 'absolute';
+            navMenu.style.top = '70px';
+            navMenu.style.left = '0';
+            navMenu.style.width = '100%';
+            navMenu.style.background = 'var(--primary-dark)';
+            navMenu.style.padding = '20px';
+            navMenu.style.zIndex = '1000';
+            mobileMenuBtn.classList.toggle('fa-bars');
+            mobileMenuBtn.classList.toggle('fa-times');
+        }
+    });
+}
 const btnLogout = document.getElementById('btnLogout');
 const heroTitle = document.getElementById('heroTitle');
 const heroText = document.getElementById('heroText');
